@@ -1,16 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 
-
-const navIcons = [
-  {
-    src: "assets/icons/search.svg",
-    alt: "search",
-  },
-  { src: "assets/icons/black-heart.svg", alt: "heart" },
-  { src: "assets/icons/user.svg", alt: "search" },
-];
-
 const Navbar = () => {
   return (
     <header className="w-full">
@@ -22,22 +12,10 @@ const Navbar = () => {
             height={27}
             alt="logo"
           ></Image>
-          <p className="nav-logo">
+          <p className="text-2xl font-normal">
             Shop<span className="text-primary">Buddy</span>
           </p>
         </Link>
-        <div className="flex items-center gap-5">
-          {navIcons.map((icon) => (
-            <Image
-            className="nav-img"
-              key={icon.alt}
-              src={icon.src}
-              alt={icon.alt}
-              width={28}
-              height={28}
-            />
-          ))}
-        </div>
       </nav>
     </header>
   );
