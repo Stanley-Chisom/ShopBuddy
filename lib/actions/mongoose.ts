@@ -13,7 +13,7 @@ export const connectToDB = async () => {
         try {
                 await mongoose.connect(process.env.MONGODB_URI)
                 isConnected = true
-                console.log('Connected to database ')
+                console.log('MongoDB connection established!')
 
         } catch (error) {
                 console.log(error)
