@@ -26,7 +26,7 @@ export async function scrapeAmazonProduct(url: string) {
     try {
         const response = await axios.get(url, options)
         const $ = cheerio.load(response.data)
-
+        
         const productName = $('#productTitle').text().trim()
         const currentPrice = extractPrice(
             $('.priceToPay span.a-price-whole'),
