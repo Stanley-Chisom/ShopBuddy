@@ -26,7 +26,7 @@ const SearchBar = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault(); 
+    e.preventDefault();
 
     const isValidUrl = isValidAmazonProductUrl(searchQuery);
     if (!isValidUrl) {

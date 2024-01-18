@@ -1,10 +1,10 @@
 "use server"
-
 import { revalidatePath } from "next/cache";
 import Product from "../models/productModel";
 import { connectToDB } from "./mongoose";
 import { scrapeAmazonProduct } from "./scraper";
 import { getAveragePrice, getLowestPrice, getHighestPrice } from "./utils";
+
 
 const scrapeAndStoreProduct = async (productUrl: string) => {
     if (!productUrl) return;
@@ -44,6 +44,30 @@ const scrapeAndStoreProduct = async (productUrl: string) => {
 
     } catch (error: any) {
         throw new Error(`Failed to create/update product:`)
+    }
+}
+
+export async function getProductById(productId: string) {
+    try {
+        connectToDB();
+
+        const product = await Product.findOne({ _id: productId })
+        !product ? null : product
+
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+export async function getAllProducts() {
+    try {
+        connectToDB();
+        const product = await Product.find()
+
+        return product
+
+    } catch (error) {
+        console.log(error)
     }
 }
 
