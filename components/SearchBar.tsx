@@ -36,7 +36,7 @@ const SearchBar = () => {
       setIsLoading(true);
 
       const product = await scrapeAndStoreProduct(searchQuery);
-    } catch (error) {
+    } catch (error) {    
       console.log(error);
     } finally {
       setIsLoading(false);
